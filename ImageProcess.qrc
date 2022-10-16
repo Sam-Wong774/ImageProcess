@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/ImageProcess">
+        <file>ImageProcess.png</file>
+    </qresource>
+    <qresource prefix="/res">
+        <file>res/file_new.png</file>
+        <file>res/file_open.png</file>
+        <file>res/file_openFile.png</file>
+        <file>res/file_save.png</file>
+        <file>res/file_clear.png</file>
+        <file>res/file_save02.png</file>
+    </qresource>
+</RCC>

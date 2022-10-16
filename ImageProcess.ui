@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ImageProcessClass</class>
+ <widget class="QMainWindow" name="ImageProcessClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>624</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ImageProcess</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="ImageProcess.qrc">
+    <normaloff>:/ImageProcess/ImageProcess.png</normaloff>:/ImageProcess/ImageProcess.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>624</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionOpenFile"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionClear"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="toolTipDuration">
+     <number>3</number>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_This"/>
+    <addaction name="actionAbout_QT"/>
+   </widget>
+   <widget class="QMenu" name="menuImageProcess">
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="title">
+     <string>ImageProcess</string>
+    </property>
+    <addaction name="actionColor2Gray"/>
+    <addaction name="actionR_Channel"/>
+    <addaction name="actionG_Channel"/>
+    <addaction name="actionB_Channel"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="toolTipDuration">
+     <number>3</number>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="title">
+     <string>View</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuFourierTransform">
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="toolTipDuration">
+     <number>-1</number>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="title">
+     <string>Fourier Transform</string>
+    </property>
+    <widget class="QMenu" name="menuDFT">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="toolTipDuration">
+      <number>3</number>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="title">
+      <string>DFT</string>
+     </property>
+     <addaction name="actionDFT"/>
+     <addaction name="actionIDFT"/>
+    </widget>
+    <widget class="QMenu" name="menuFFT">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="toolTipDuration">
+      <number>3</number>
+     </property>
+     <property name="title">
+      <string>FFT</string>
+     </property>
+     <addaction name="actionFFT"/>
+     <addaction name="actionIFFT"/>
+    </widget>
+    <widget class="QMenu" name="menuFFTW">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="toolTipDuration">
+      <number>3</number>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="title">
+      <string>FFTW</string>
+     </property>
+     <addaction name="actionFFTW"/>
+     <addaction name="actionIFFTW"/>
+    </widget>
+    <addaction name="menuDFT"/>
+    <addaction name="menuFFT"/>
+    <addaction name="menuFFTW"/>
+   </widget>
+   <widget class="QMenu" name="menuImageEdit">
+    <property name="title">
+     <string>ImageEdit</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuImageProcess"/>
+   <addaction name="menuImageEdit"/>
+   <addaction name="menuFourierTransform"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionSave"/>
+   <addaction name="actionClear"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="ImageProcess.qrc">
+     <normaloff>:/res/res/file_open.png</normaloff>:/res/res/file_open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>打开图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="ImageProcess.qrc">
+     <normaloff>:/res/res/file_save.png</normaloff>:/res/res/file_save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>保存图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="ImageProcess.qrc">
+     <normaloff>:/res/res/file_new.png</normaloff>:/res/res/file_new.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="toolTip">
+    <string>新建图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOpenFile">
+   <property name="icon">
+    <iconset resource="ImageProcess.qrc">
+     <normaloff>:/res/res/file_openFile.png</normaloff>:/res/res/file_openFile.png</iconset>
+   </property>
+   <property name="text">
+    <string>OpenFile</string>
+   </property>
+   <property name="toolTip">
+    <string>打开文件夹</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset resource="ImageProcess.qrc">
+     <normaloff>:/res/res/file_clear.png</normaloff>:/res/res/file_clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="toolTip">
+    <string>清空所有图片</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionAbout_This">
+   <property name="text">
+    <string>About This</string>
+   </property>
+   <property name="toolTip">
+    <string>关于软件说明</string>
+   </property>
+  </action>
+  <action name="actionAbout_QT">
+   <property name="text">
+    <string>About QT</string>
+   </property>
+   <property name="toolTip">
+    <string>关于QT说明</string>
+   </property>
+  </action>
+  <action name="actionColor2Gray">
+   <property name="text">
+    <string>Color2Gray</string>
+   </property>
+   <property name="toolTip">
+    <string>彩色转灰度</string>
+   </property>
+  </action>
+  <action name="actionDFT">
+   <property name="text">
+    <string>DFT</string>
+   </property>
+   <property name="toolTip">
+    <string>离散傅里叶变换</string>
+   </property>
+  </action>
+  <action name="actionIDFT">
+   <property name="text">
+    <string>IDFT</string>
+   </property>
+   <property name="toolTip">
+    <string>离散傅里叶反变换</string>
+   </property>
+  </action>
+  <action name="actionFFT">
+   <property name="text">
+    <string>FFT</string>
+   </property>
+   <property name="toolTip">
+    <string>快速傅里叶变换</string>
+   </property>
+  </action>
+  <action name="actionIFFT">
+   <property name="text">
+    <string>IFFT</string>
+   </property>
+   <property name="toolTip">
+    <string>快速傅里叶反变换</string>
+   </property>
+  </action>
+  <action name="actionFFTW">
+   <property name="text">
+    <string>FFTW</string>
+   </property>
+   <property name="toolTip">
+    <string>快速傅里叶变换</string>
+   </property>
+  </action>
+  <action name="actionIFFTW">
+   <property name="text">
+    <string>IFFTW</string>
+   </property>
+   <property name="toolTip">
+    <string>快速傅里叶反变换</string>
+   </property>
+  </action>
+  <action name="actionR_Channel">
+   <property name="text">
+    <string>R-Channel</string>
+   </property>
+  </action>
+  <action name="actionG_Channel">
+   <property name="text">
+    <string>G-Channel</string>
+   </property>
+  </action>
+  <action name="actionB_Channel">
+   <property name="text">
+    <string>B-Channel</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="ImageProcess.qrc"/>
+ </resources>
+ <connections/>
+</ui>
